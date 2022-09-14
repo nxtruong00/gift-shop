@@ -1,0 +1,17 @@
+{
+  "changelogDate": "20220829172535",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength", "maxlength"],
+      "fieldValidateRulesMaxlength": "10000",
+      "fieldValidateRulesMinlength": "10"
+    }
+  ],
+  "name": "Post",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

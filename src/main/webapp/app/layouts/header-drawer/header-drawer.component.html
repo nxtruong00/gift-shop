@@ -1,0 +1,57 @@
+<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-brown">
+  <!--  <app-header-search>Search Box</app-header-search>-->
+  <div class="container-fluid row">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="search-top-wrapper">
+        <form id="dsd" action="/search">
+          <i class="fa fa-search"></i>
+          <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span>
+          <input type="text" class="txtSearch ui-autocomplete-input" name="q" placeholder="Tìm kiếm..."
+                 autocomplete="off">
+          <button type="submit" class="tp_button chir_btn_sub">
+            Tìm kiếm
+          </button>
+          <div id="searchFolding"></div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="input-wrapper">
+        <input aria-label="Ask us anything">
+        <span class="placeholder"></span>
+      </div>
+      <div class="pr typewrite header-text cw" data-period="4000"
+           data-type="[&quot;KẺ DU HÀNH&quot;,&quot;PRESENTS FROM LOVE !&quot;,&quot;CHÀO MỪNG BẠN ĐÃ DU HÀNH TỚI ĐÂY!&quot;]">
+        <span class="wrap">CHÀO MỪNG BẠN ĐÃ DU HÀNH TỚI ĐÂY!</span><span class="typed-cursor">|</span></div>
+
+    </div>
+    <div class="navbar-collapse collapse col-md-4 col-sm-6 col-xs-12" id="navbarResponsive">
+      <ul class="navbar-nav ms-auto">
+        <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
+        <li><a href="" style="float: right" class="nav-link float-right">Tra cứu đơn hàng</a></li>
+        <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">
+          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
+            <span>
+              <fa-icon icon="flag"></fa-icon>
+              <span jhiTranslate="global.menu.language">Language</span>
+            </span>
+          </a>
+          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
+            <li *ngFor="let language of languages">
+              <a
+                class="dropdown-item"
+                [jhiActiveMenu]="language"
+                href="javascript:void(0);"
+                (click)="changeLanguage(language); collapseNavbar()"
+              >{{ language | findLanguageFromKey }}</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+

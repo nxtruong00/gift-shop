@@ -1,0 +1,388 @@
+@import 'bootstrap-variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+/* ==============================================================
+Bootstrap tweaks
+===============================================================*/
+
+body,
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 300;
+}
+
+/* Increase contrast of links to get 100% on Lighthouse Accessability Audit. Override this color if you want to change the link color, or use a Bootswatch theme */
+a {
+  color: #533f03;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #533f03;
+}
+
+/* override hover color for dropdown-item forced by bootstrap to all a:not([href]):not([tabindex]) elements in _reboot.scss */
+a:not([href]):not([tabindex]):hover.dropdown-item {
+  color: $dropdown-link-hover-color;
+}
+
+/* override .dropdown-item.active background-color on hover */
+.dropdown-item.active:hover {
+  background-color: mix($dropdown-link-hover-bg, $dropdown-link-active-bg, 50%);
+}
+
+a:hover {
+  /* make sure browsers use the pointer cursor for anchors, even with no href */
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  color: $dropdown-link-hover-color;
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+Generic styles
+========================================================================== */
+
+/* Error highlight on input fields */
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid green;
+}
+
+.ng-invalid:not(form) {
+  border-left: 5px solid red;
+}
+
+/* other generic styles */
+
+.jh-card {
+  padding: 1.5%;
+  margin-top: 20px;
+  border: none;
+}
+
+.error {
+  color: white;
+  background-color: red;
+}
+
+.pad {
+  padding: 10px;
+}
+
+.w-40 {
+  width: 40% !important;
+}
+
+.w-60 {
+  width: 60% !important;
+}
+
+.break {
+  white-space: normal;
+  word-break: break-all;
+}
+
+.form-control {
+  background-color: #fff;
+}
+
+.readonly {
+  background-color: #eee;
+  opacity: 1;
+}
+
+.footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.hand,
+[jhisortby] {
+  cursor: pointer;
+}
+
+/* ==========================================================================
+Custom alerts for notification
+========================================================================== */
+.alerts {
+  .alert {
+    text-overflow: ellipsis;
+
+    pre {
+      background: none;
+      border: none;
+      font: inherit;
+      color: inherit;
+      padding: 0;
+      margin: 0;
+    }
+
+    .popover pre {
+      font-size: 10px;
+    }
+  }
+
+  .jhi-toast {
+    position: fixed;
+    width: 100%;
+
+    &.left {
+      left: 5px;
+    }
+
+    &.right {
+      right: 5px;
+    }
+
+    &.top {
+      top: 55px;
+    }
+
+    &.bottom {
+      bottom: 55px;
+    }
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .alerts .jhi-toast {
+    width: 50%;
+  }
+}
+
+/* ==========================================================================
+entity detail page css
+========================================================================== */
+.row-md.jh-entity-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 10px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  .row-md.jh-entity-details > {
+    dt {
+      float: left;
+      overflow: hidden;
+      clear: left;
+      text-align: right;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 0.5em 0;
+    }
+
+    dd {
+      border-bottom: 1px solid #eee;
+      padding: 0.5em 0;
+      margin-left: 0;
+    }
+  }
+}
+
+/* ==========================================================================
+ui bootstrap tweaks
+========================================================================== */
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
+  cursor: pointer;
+}
+
+.thread-dump-modal-lock {
+  max-width: 450px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-menu {
+  padding-left: 0px;
+}
+
+/* ==========================================================================
+angular-cli removes postcss-rtl processed inline css, processed rules must be added here instead
+========================================================================== */
+/* page-ribbon.component.scss */
+.ribbon {
+  left: -3.5em;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/* navbar.component.scss */
+.navbar {
+  ul.navbar-nav {
+    .nav-item {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+/* jhipster-needle-scss-add-main JHipster will add new css style */
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+a.button,
+button,
+input[type='submit'] {
+  cursor: pointer;
+  border: 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 0 27px 0 30px;
+  background: #b59677;
+  color: #fff;
+  border-radius: 0;
+}
+
+input[type='submit']:not(.button-o),
+button,
+a.button,
+a.button-o:hover,
+input.button-o:hover,
+button.button-o:hover,
+button.button_sticky:hover,
+a.button-o-w:hover,
+.bgp,
+.bghp:hover,
+#jas-backtop span:before,
+.more-link:hover,
+.widget .tagcloud a:hover,
+.jas-mini-cart .button.checkout,
+.dropdown-cart .button.checkout,
+.shopify-pagination-ajax a:hover,
+.shopify-pagination-ajax a.disabled,
+.jas-ajax-load a:hover,
+.jas-ajax-load a.disabled,
+.widget.widget_price_filter .ui-slider-range,
+.widget.widget_price_filter .ui-state-default,
+.product-image:hover .product-button a:hover,
+.yith-wcwl-add-to-wishlist i.ajax-loading,
+.btn-atc .yith-wcwl-add-to-wishlist a:hover,
+.entry-summary .single_add_to_cart_button,
+.entry-summary .external_single_add_to_cart_button,
+.jas-service[class*='icon-'] .icon:before,
+.metaslider .flexslider .flex-prev,
+.metaslider .flexslider .flex-next,
+.swatch__list--item.is-selected,
+.jas-wc-single .gecko-show-product-gallery-wrap a:hover:after,
+.counter_real_time #number_counter,
+.comments-area .comment-respond input[type='submit'],
+input.get-rates.btn.button,
+#jas_product_delivery,
+#jas_product_delivery_quick,
+.slick-prev,
+.slick-next,
+.select_orderby li:hover,
+.pop_up_notify {
+  background-color: #b59677;
+}
+body, div#metaslider_container_1512373313144 *, .metaslider .flexslider .caption-wrap h3, a.button-o-w, .product-category-gecko .hover-wrap a, .jas-container h3, .jas_instagram_section h3, .product-category-gecko .hover-wrap a, .jas-menu>li>a, .jas-menu ul li a, .pr.typewrite.header-text.cw span, .jas-container h3, .jas_instagram_section h3, .has-post-thumbnail .post-info h4, h1, h2, h3, h4, h5, h6 {
+  font-family: quicksand, serif !important;
+}
