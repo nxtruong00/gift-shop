@@ -1,9 +1,7 @@
-<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+<nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-white">
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
-      <span jhiTranslate="global.title" class="navbar-title">GiftShop</span>
-      <span class="navbar-version">{{ version }}</span>
     </a>
     <a
       class="navbar-toggler d-lg-none"
@@ -18,15 +16,51 @@
       <fa-icon icon="bars"></fa-icon>
     </a>
     <div class="navbar-collapse collapse" id="navbarResponsive" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="account !== null">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-          <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
-            <span>
-              <fa-icon icon="home"></fa-icon>
+      <div class="main-nav row" style="width: 80%">
+        <ul class="navbar-nav ms-auto" style="justify-content: center">
+          <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
               <span jhiTranslate="global.menu.home">Home</span>
-            </span>
-          </a>
-        </li>
+            </a>
+          </li>
+          <li class="nav-item" style="margin-left: 35px !important" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+              <span jhiTranslate="global.menu.product">Product</span>
+            </a>
+          </li>
+          <li
+            class="nav-item ml-35"
+            style="margin-left: 35px !important"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+              <span jhiTranslate="global.menu.customize">Customize</span>
+            </a>
+          </li>
+          <li
+            class="nav-item ml-35"
+            style="margin-left: 35px !important"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+              <span jhiTranslate="global.menu.noel">Noel</span>
+            </a>
+          </li>
+          <li
+            class="nav-item ml-35"
+            style="margin-left: 35px !important"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+              <span jhiTranslate="global.menu.store">Store</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <ul class="navbar-nav ms-auto">
         <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
         <li
           *ngSwitchCase="true"
@@ -53,6 +87,18 @@
               >
                 <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
                 <span appTranslate="global.menu.entities.post">Post</span>
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item"
+                routerLink="product"
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact: true }"
+                (click)="collapseNavbar()"
+              >
+                <fa-icon icon="asterisk" [fixedWidth]="true"></fa-icon>
+                <span appTranslate="global.menu.entities.product">Product</span>
               </a>
             </li>
             <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
@@ -118,25 +164,6 @@
             </li>
           </ul>
         </li>
-        <li ngbDropdown class="nav-item dropdown pointer" display="dynamic" *ngIf="languages && languages.length > 1">
-          <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="languagesnavBarDropdown">
-            <span>
-              <fa-icon icon="flag"></fa-icon>
-              <span jhiTranslate="global.menu.language">Language</span>
-            </span>
-          </a>
-          <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="languagesnavBarDropdown">
-            <li *ngFor="let language of languages">
-              <a
-                class="dropdown-item"
-                [jhiActiveMenu]="language"
-                href="javascript:void(0);"
-                (click)="changeLanguage(language); collapseNavbar()"
-                >{{ language | findLanguageFromKey }}</a
-              >
-            </li>
-          </ul>
-        </li>
         <li
           ngbDropdown
           class="nav-item dropdown pointer"
@@ -146,8 +173,7 @@
         >
           <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="account-menu" data-cy="accountMenu">
             <span *ngIf="!account?.imageUrl">
-              <fa-icon icon="user"></fa-icon>
-              <span jhiTranslate="global.menu.account.main">Account</span>
+              <fa-icon icon="user-circle" size="2x"></fa-icon>
             </span>
             <span *ngIf="account?.imageUrl">
               <img [src]="account!.imageUrl" class="profile-image rounded-circle" alt="Avatar" />
@@ -203,6 +229,20 @@
               </a>
             </li>
           </ul>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+            <span>
+              <fa-icon icon="heart" size="2x"></fa-icon>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link" routerLink="/" (click)="collapseNavbar()">
+            <span>
+              <fa-icon icon="shopping-bag" size="2x"></fa-icon>
+            </span>
+          </a>
         </li>
       </ul>
     </div>

@@ -17,6 +17,8 @@ import {Router} from "@angular/router";
 export class HeaderDrawerComponent {
   isNavbarCollapsed = true;
   languages = LANGUAGES;
+  title = 'title';
+  list = ['KẺ DU HÀNH', 'PRESENTS FROM LOVE!','CHÀO MỪNG BẠN ĐÃ DU HÀNH TỚI ĐÂY!']
   constructor( private loginService: LoginService,
                private translateService: TranslateService,
                private sessionStorageService: SessionStorageService,
@@ -26,6 +28,7 @@ export class HeaderDrawerComponent {
 
   // ngOnInit(): void {
   // }
+
   changeLanguage(languageKey: string): void {
     this.sessionStorageService.store('locale', languageKey);
     this.translateService.use(languageKey);

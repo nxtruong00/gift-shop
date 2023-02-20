@@ -26,6 +26,7 @@ import { PageRibbonComponent } from './layouts/profiles/page-ribbon.component';
 import { ActiveMenuDirective } from './layouts/navbar/active-menu.directive';
 import { ErrorComponent } from './layouts/error/error.component';
 import { HeaderDrawerComponent } from './layouts/header-drawer/header-drawer.component';
+import {AngularTypewriterEffectModule} from "angular-typewriter-effect";
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { HeaderDrawerComponent } from './layouts/header-drawer/header-drawer.com
     HttpClientModule,
     NgxWebstorageModule.forRoot({ prefix: 'app', separator: '-', caseSensitive: true }),
     TranslationModule,
+    AngularTypewriterEffectModule
   ],
   providers: [
     Title,

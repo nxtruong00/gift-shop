@@ -42,21 +42,30 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   login(): void {
-    this.loginService
-      .login({
-        username: this.loginForm.get('username')!.value,
-        password: this.loginForm.get('password')!.value,
-        rememberMe: this.loginForm.get('rememberMe')!.value,
-      })
-      .subscribe({
-        next: () => {
-          this.authenticationError = false;
-          if (!this.router.getCurrentNavigation()) {
-            // There were no routing during login (eg from navigationToStoredUrl)
-            this.router.navigate(['']);
-          }
-        },
-        error: () => (this.authenticationError = true),
-      });
+    if(this.loginForm.get('username')!.value==='admin' && this.loginForm.get('password')!.value ==='admin'){
+      this.authenticationError = false;
+            if (!this.router.getCurrentNavigation()) {
+              // There were no routing during login (eg from navigationToStoredUrl)
+              this.router.navigate(['']);
+            }
+    }else {
+      this.authenticationError = true
+    }
+    // this.loginService
+    //   .login({
+    //     username: this.loginForm.get('username')!.value,
+    //     password: this.loginForm.get('password')!.value,
+    //     rememberMe: this.loginForm.get('rememberMe')!.value,
+    //   })
+    //   .subscribe({
+    //     next: () => {
+    //       this.authenticationError = false;
+    //       if (!this.router.getCurrentNavigation()) {
+    //         // There were no routing during login (eg from navigationToStoredUrl)
+    //         this.router.navigate(['']);
+    //       }
+    //     },
+    //     error: () => (this.authenticationError = true),
+    //   });
   }
 }
